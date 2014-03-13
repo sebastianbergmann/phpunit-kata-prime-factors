@@ -11,38 +11,26 @@ class PrimeFactorsTest extends PHPUnit_Framework_TestCase
         $this->primeFactors = new PrimeFactors;
     }
 
-    public function testOne()
+    /**
+     * @param integer $n
+     * @param array   $expected
+     * @dataProvider provider
+     */
+    public function testGenerationWorksCorrectly($n, array $expected)
     {
-        $this->assertEquals(array(), $this->primeFactors->generate(1));
+        $this->assertEquals($expected, $this->primeFactors->generate($n));
     }
 
-    public function testTwo()
+    public function provider()
     {
-        $this->assertEquals(array(2), $this->primeFactors->generate(2));
-    }
-
-    public function testThree()
-    {
-        $this->assertEquals(array(3), $this->primeFactors->generate(3));
-    }
-
-    public function testFour()
-    {
-        $this->assertEquals(array(2, 2), $this->primeFactors->generate(4));
-    }
-
-    public function testSix()
-    {
-        $this->assertEquals(array(2, 3), $this->primeFactors->generate(6));
-    }
-
-    public function testEight()
-    {
-        $this->assertEquals(array(2, 2, 2), $this->primeFactors->generate(8));
-    }
-
-    public function testNine()
-    {
-        $this->assertEquals(array(3, 3), $this->primeFactors->generate(9));
+        return array(
+            array(1, array()),
+            array(2, array(2)),
+            array(3, array(3)),
+            array(4, array(2, 2)),
+            array(6, array(2, 3)),
+            array(8, array(2, 2, 2)),
+            array(9, array(3, 3))
+        );
     }
 }
