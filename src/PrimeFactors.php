@@ -15,10 +15,6 @@ class PrimeFactors
             $candidate++;
         }
 
-        if ($n > 1) {
-            $primes[] = $n;
-        }
-
         return $primes;
     }
 }
