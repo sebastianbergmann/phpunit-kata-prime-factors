@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prime-factors" default="build">
+ <target name="build" depends="prepare,phpunit">
+ </target>
+
+ <target name="prepare">
+  <exec executable="${basedir}/build/tools/phpab.phar">
+   <arg value="--output" />
+   <arg path="src/autoload.php" />
+   <arg path="src" />
+  </exec>
+ </target>
+
+ <target name="phpunit">
+  <exec executable="${basedir}/build/tools/phpunit.phar" failonerror="true">
+   <arg value="--configuration" />
+   <arg path="${basedir}/build" />
+  </exec>
+ </target>
+</project>
+
