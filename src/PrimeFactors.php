@@ -3,6 +3,12 @@ class PrimeFactors
 {
     public function generate($n)
     {
-        return array();
+        $primes = array();
+
+        if ($n > 1) {
+            $primes[] = 2;
+        }
+
+        return $primes;
     }
 }
