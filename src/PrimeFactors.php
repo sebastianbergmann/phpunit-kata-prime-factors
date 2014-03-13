@@ -7,9 +7,8 @@ class PrimeFactors
         $candidate = 2;
 
         while ($n > 1) {
-            while ($n % $candidate == 0) {
+            for (; $n % $candidate == 0; $n /= $candidate) {
                 $primes[] = $candidate;
-                $n /= $candidate;
             }
 
             $candidate++;
