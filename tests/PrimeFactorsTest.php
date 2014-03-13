@@ -15,4 +15,9 @@ class PrimeFactorsTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(array(), $this->primeFactors->generate(1));
     }
+
+    public function testTwo()
+    {
+        $this->assertEquals(array(2), $this->primeFactors->generate(2));
+    }
 }
