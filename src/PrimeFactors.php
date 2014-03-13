@@ -3,17 +3,20 @@ class PrimeFactors
 {
     public function generate($n)
     {
-        $primes = array();
+        $primes    = array();
+        $candidate = 2;
+
+        while ($n > 1) {
+            while ($n % $candidate == 0) {
+                $primes[] = $candidate;
+                $n /= $candidate;
+            }
+
+            $candidate++;
+        }
 
         if ($n > 1) {
-            while ($n % 2 == 0) {
-                $primes[] = 2;
-                $n /= 2;
-            }
-
-            if ($n > 1) {
-                $primes[] = $n;
-            }
+            $primes[] = $n;
         }
 
         return $primes;
