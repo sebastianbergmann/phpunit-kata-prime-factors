@@ -6,7 +6,7 @@ class PrimeFactors
         $primes = array();
 
         if ($n > 1) {
-            if ($n % 2 == 0) {
+            while ($n % 2 == 0) {
                 $primes[] = 2;
                 $n /= 2;
             }
