@@ -12,11 +12,11 @@ class PrimeFactorsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param integer $n
      * @param array   $expected
+     * @param integer $n
      * @dataProvider provider
      */
-    public function testGenerationWorksCorrectly($n, array $expected)
+    public function testGenerationWorksCorrectly(array $expected, $n)
     {
         $this->assertEquals($expected, $this->primeFactors->generate($n));
     }
@@ -24,13 +24,13 @@ class PrimeFactorsTest extends PHPUnit_Framework_TestCase
     public function provider()
     {
         return array(
-            array(1, array()),
-            array(2, array(2)),
-            array(3, array(3)),
-            array(4, array(2, 2)),
-            array(6, array(2, 3)),
-            array(8, array(2, 2, 2)),
-            array(9, array(3, 3))
+            array(array(), 1),
+            array(array(2), 2),
+            array(array(3), 3),
+            array(array(2, 2), 4),
+            array(array(2, 3), 6),
+            array(array(2, 2, 2), 8),
+            array(array(3, 3), 9)
         );
     }
 }
